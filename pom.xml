@@ -26,22 +26,14 @@
 
 	<dependencies>
 		<dependency>
-	      <groupId>org.springframework.boot</groupId>
-	      <artifactId>spring-boot-starter-web</artifactId>
-	    </dependency>
-	    <dependency>
 		    <groupId>net.devh</groupId>
-		    <artifactId>grpc-server-spring-boot-starter</artifactId>
+		    <artifactId>grpc-spring-boot-starter</artifactId>
 		    <version>2.7.0.RELEASE</version>
 		</dependency>
-	    <dependency>
-	      <groupId>org.springframework.boot</groupId>
-	      <artifactId>spring-boot-starter-test</artifactId>
-	      <scope>test</scope>
-	    </dependency>
 	</dependencies>
 
 	<build>
+		
 		<extensions>
             <extension>
                 <groupId>kr.motd.maven</groupId>
@@ -75,6 +67,7 @@
                 </executions>
             </plugin>
 		</plugins>
+		
 	</build>
 
 	<repositories>

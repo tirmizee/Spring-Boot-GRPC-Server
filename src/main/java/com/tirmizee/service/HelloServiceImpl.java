@@ -17,7 +17,16 @@ public class HelloServiceImpl extends HelloWorldServiceGrpc.HelloWorldServiceImp
 
 	@Override
 	public void sayHello(Person request, StreamObserver<Message> responseObserver) {
-		super.sayHello(request, responseObserver);
+		LOGGER.info("server received {}", request);
+
+	    Message message = Message.newBuilder()
+	    	.setCode("SM001")
+	    	.setMessage("Success")
+	    	.build();
+	    LOGGER.info("server responded {}", message);
+
+	    responseObserver.onNext(message);
+	    responseObserver.onCompleted();
 	}
 
 }
