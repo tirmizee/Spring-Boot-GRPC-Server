@@ -4,10 +4,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	
 	<parent>
-	    <groupId>org.springframework.boot</groupId>
-	    <artifactId>spring-boot-starter-parent</artifactId>
-	    <version>2.1.0.RELEASE</version>
-	    <relativePath /> <!-- lookup parent from repository -->
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.1.0.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	
 	<groupId>com.tirmizee</groupId>
@@ -17,61 +17,61 @@
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
-		<java.version>1.8</java.version>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-	    <os-maven-plugin.version>1.6.2</os-maven-plugin.version>
-	    <protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
+	    	<java.version>1.8</java.version>
+	    	<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    	<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+	    	<os-maven-plugin.version>1.6.2</os-maven-plugin.version>
+	    	<protobuf-maven-plugin.version>0.6.1</protobuf-maven-plugin.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-		    <groupId>net.devh</groupId>
-		    <artifactId>grpc-spring-boot-starter</artifactId>
-		    <version>2.7.0.RELEASE</version>
+    			<groupId>net.devh</groupId>
+		    	<artifactId>grpc-spring-boot-starter</artifactId>
+		    	<version>2.7.0.RELEASE</version>
 		</dependency>
 	</dependencies>
 
 	<build>
 		
 		<extensions>
-            <extension>
-                <groupId>kr.motd.maven</groupId>
-                <artifactId>os-maven-plugin</artifactId>
-                <version>${os-maven-plugin.version}</version>
-            </extension>
-        </extensions>
+			<extension>
+				<groupId>kr.motd.maven</groupId>
+				<artifactId>os-maven-plugin</artifactId>
+				<version>${os-maven-plugin.version}</version>
+			</extension>
+		</extensions>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
 			<plugin>
-                <groupId>org.xolstice.maven.plugins</groupId>
-                <artifactId>protobuf-maven-plugin</artifactId>
-            </plugin>
+				<groupId>org.xolstice.maven.plugins</groupId>
+				<artifactId>protobuf-maven-plugin</artifactId>
+			</plugin>
 		</plugins>
 		<pluginManagement>
 			<plugins>
 				<plugin>
-	                <groupId>org.xolstice.maven.plugins</groupId>
-	                <artifactId>protobuf-maven-plugin</artifactId>
-	                <version>0.6.1</version>
-	                <configuration>
+					<groupId>org.xolstice.maven.plugins</groupId>
+					<artifactId>protobuf-maven-plugin</artifactId>
+					<version>0.6.1</version>
+					<configuration>
 						<checkStaleness>true</checkStaleness>
 						<protocArtifact>com.google.protobuf:protoc:3.11.0:exe:${os.detected.classifier}</protocArtifact>
 						<pluginId>grpc-java</pluginId>
 						<pluginArtifact>io.grpc:protoc-gen-grpc-java:1.28.0:exe:${os.detected.classifier}</pluginArtifact>
-			        </configuration>
-	                <executions>
-	                    <execution>
-	                        <goals>
-	                            <goal>compile</goal>
-	                            <goal>compile-custom</goal>
-	                        </goals>
-	                    </execution>
-	                </executions>
-	            </plugin>
+			        	</configuration>
+					<executions>
+						<execution>
+							<goals>
+								<goal>compile</goal>
+								<goal>compile-custom</goal>
+							</goals>
+						</execution>
+					</executions>
+	            		</plugin>
 			</plugins>
 		</pluginManagement>
 	</build>
