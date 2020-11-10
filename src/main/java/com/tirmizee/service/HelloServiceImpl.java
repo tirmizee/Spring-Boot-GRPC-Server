@@ -1,16 +1,17 @@
 package com.tirmizee.service;
 
+import org.lognet.springboot.grpc.GRpcService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.tirmizee.grpc.HelloWorldServiceGrpc;
 import com.tirmizee.grpc.Message;
 import com.tirmizee.grpc.Person;
+import com.tirmizee.intercepter.LogGrpcInterceptor;
 
 import io.grpc.stub.StreamObserver;
-import net.devh.boot.grpc.server.service.GrpcService;
 
-@GrpcService
+@GRpcService(interceptors = {LogGrpcInterceptor.class})
 public class HelloServiceImpl extends HelloWorldServiceGrpc.HelloWorldServiceImplBase {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(HelloServiceImpl.class);
@@ -22,7 +23,8 @@ public class HelloServiceImpl extends HelloWorldServiceGrpc.HelloWorldServiceImp
 	    Message message = Message.newBuilder()
 	    	.setCode("SM001")
 	    	.setMessage("Success")
-	    	.build();
+	    .build();
+	    
 	    LOGGER.info("server responded {}", message);
 
 	    responseObserver.onNext(message);
